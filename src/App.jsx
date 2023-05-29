@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import styled from '@emotion/styled'
-import ImagenCrypto from './img/imagen-criptos.png'
+import ImagenCryptoAlt from './img/img-cryptos.webp'
 import Formulario from './components/Formulario'
 import Spinner from './components/Spinner'
 import Resultado from './components/Resultado'
@@ -9,7 +9,7 @@ const Contenedor = styled.div`
   max-width: 900px;
   margin: 0 auto;
   width: 90%;
-  @media (min-width: 992px){
+  @media (min-width: 990px){
     display:grid;
     grid-template-columns: repeat(2, 1fr);
     column-gap: 2rem;
@@ -19,8 +19,11 @@ const Contenedor = styled.div`
 const Imagen = styled.img`
   max-width:400px;
   width: 80%;
-  margin: 100px auto 0 auto;
+  margin: 200px auto 0 auto;
   display: block;
+  @media (max-width: 768px) {
+  display: none;
+}
 `
 
 const Heading = styled.h1`
@@ -73,12 +76,12 @@ function App() {
     <Contenedor>
 
       <Imagen 
-        src={ImagenCrypto}
-        alt="imagen de cryptos"
+        src={ImagenCryptoAlt}
+        alt="ver "
       />
 
       <div>
-        <Heading>Criptomonedas | Cotización en tiempo real</Heading>
+        <Heading>Cotización en tiempo real de criptomonedas</Heading>
 
         <Formulario 
           setMonedas={setMonedas}

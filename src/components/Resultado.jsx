@@ -33,6 +33,13 @@ const PrecioResult = styled.p`
 const Resultado = ({resultadoAPI}) => {
     
     const { PRICE, HIGHDAY, LOWDAY, CHANGEPCT24HOUR, IMAGEURL, LASTUPDATE} = resultadoAPI
+    
+    const traducir = (strTraducir,strTraducido) => {
+        const cadenaTraducida = strTraducir.replace(strTraducir,strTraducido)
+        
+        return cadenaTraducida
+    }
+    
   return (
     <ResultadoFormat>
         <ImagenCrypto 
@@ -45,7 +52,7 @@ const Resultado = ({resultadoAPI}) => {
             <TextoResult>El precio más alto de hoy es: <span>{HIGHDAY}</span></TextoResult>
             <TextoResult>El precio más bajo de hoy es: <span>{LOWDAY}</span></TextoResult>
             <TextoResult>Variación últimas 24 horas: <span>{CHANGEPCT24HOUR}</span></TextoResult>
-            <TextoResult>Última actualización: <span>{LASTUPDATE}</span></TextoResult>
+            <TextoResult>Última actualización: <span>{traducir(LASTUPDATE,'Ahora mismo')}</span></TextoResult>
         </div>
     </ResultadoFormat>
   )
